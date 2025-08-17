@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { CustomMDX } from 'app/components/mdx';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Activity',
@@ -15,6 +16,13 @@ export default async function ActivityPage() {
 
   return (
     <section>
+      <Image
+          src="/poland.jpg" // publicフォルダからのパス
+          alt="ポーランド・ホジュフの街並み"
+          width={1600} // 画像の元の幅
+          height={900} // 画像の元の高さ
+          className="w-full h-auto my-8"
+        />
       <h1 className="title font-semibold text-2xl tracking-tighter">
         Activity
       </h1>

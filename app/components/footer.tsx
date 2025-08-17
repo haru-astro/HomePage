@@ -12,17 +12,18 @@ function ArrowIcon() {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export default function Footer() {
   return (
-    <footer className="mb-16">
+    // ↓ この行を修正しました
+    <footer className="mb-16 mt-24 text-center">
       <p className="mb-4 text-neutral-600 dark:text-neutral-300">
         contact:haruhayakawa[at]g.ecc.u-tokyo.ac.jp <br />
 
         © {new Date().getFullYear()} MIT Licensed
       </p>
     </footer>
-  )
+  );
 }

@@ -1,13 +1,21 @@
 import { BlogPosts } from 'app/components/posts'
+import Image from 'next/image';
 
 export default function Page() {
   return (
     <section>
+        <Image
+            src="/milkyway.jpg" // publicフォルダからのパス
+            alt="天の川の写真"
+            width={1600} // 画像の元の幅
+            height={900} // 画像の元の高さ
+            className="w-full h-auto my-8"
+          />
       <h1 className="mb-8 text-2xl font-semibold">
         Haru HAYAKAWA's portfolio
       </h1>
       <p className="mb-4 font-semibold">
-        welcome to my portfolio!
+        Welcome to my Portfolio!
       </p>
       <p className="mb-2 ">ご覧いただきありがとうございます！</p>
       <p className="mb-2 ">東京大学理科一類2年生の早川晴の個人ページです。</p>
