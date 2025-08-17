@@ -11,10 +11,10 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Haru HAYAKAWA',
+    default: '早川晴のページ',
     template: '%s | Haru HAYAKAWA',
   },
-  description: 'This is my portfolio.',
+  description: 'このサイトは, 早川晴のホームページです./This is the site of Haru Hayakawa.',
   openGraph: {
     title: 'Haru HAYAKAWA',
     description: 'This is my portfolio.',
