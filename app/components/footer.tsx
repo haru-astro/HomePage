@@ -22,7 +22,7 @@ export default function Footer() {
       <p className="mb-4 text-neutral-600 dark:text-neutral-300">
         contact:haruhayakawa[at]g.ecc.u-tokyo.ac.jp <br />
 
-        © {new Date().getFullYear()} MIT Licensed
+        © {new Date().getFullYear()} haru hayakawa. MIT Licensed
       </p>
     </footer>
   );
