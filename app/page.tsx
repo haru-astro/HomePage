@@ -1,5 +1,6 @@
 import { BlogPosts } from 'app/components/posts'
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -12,13 +13,11 @@ export default function Page() {
             className="w-full h-auto my-8"
           />
       <h1 className="mb-8 text-2xl font-semibold">
-        Haru HAYAKAWA's portfolio
-      </h1>
-      <p className="mb-4 font-semibold">
         Welcome to my Portfolio!
-      </p>
+      </h1>
       <p className="mb-2 ">ご覧いただきありがとうございます！</p>
       <p className="mb-2 ">早川晴のホームページです。</p>
+      <Link href="/aboutme" className="text-blue-500 hover:underline">詳細</Link>はこちらからご覧ください。
       <h2 className="mb-4 mt-8 text-xl font-semibold">
         お知らせ・更新履歴
       </h2>
