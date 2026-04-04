@@ -1,6 +1,6 @@
 import { getBlogPosts } from 'app/blog/utils'
 
-export const baseUrl = 'https://haruhayakawa.vercel.app'
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://haruhayakawa.vercel.app'
 
 export default async function sitemap() {
   let blogs = getBlogPosts().map((post) => ({
