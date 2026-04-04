@@ -18,7 +18,7 @@ export default function Page() {
         Welcome to my Portfolio!
       </p>
       <p className="mb-2 ">ご覧いただきありがとうございます！</p>
-      <p className="mb-2 ">東京大学理科一類2年生の早川晴の個人ページです。</p>
+      <p className="mb-2 ">早川晴のホームページです。</p>
       <h2 className="mb-4 mt-8 text-xl font-semibold">
         お知らせ・更新履歴
       </h2>
