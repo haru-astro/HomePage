@@ -1,5 +1,34 @@
 @import 'tailwindcss';
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    min-width: 360px;
+    background: radial-gradient(circle at top, rgba(99, 102, 241, 0.08), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.08), transparent 24%),
+      #f8fafc;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: transparent;
+    color: #0f172a;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.12), transparent 20%),
+        #020617;
+      color-scheme: dark;
+    }
+
+    body {
+      color: #f8fafc;
+    }
+  }
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
