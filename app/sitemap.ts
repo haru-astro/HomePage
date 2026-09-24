@@ -17,7 +17,6 @@ export default async function sitemap() {
     '/activity/award',
     '/activity/outreach',
     '/projects',
-    '/photos',
     '/blog',
   ].map((route) => ({
     url: `${baseUrl}${route}`,

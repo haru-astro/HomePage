@@ -2,7 +2,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import { CustomMDX } from 'app/components/mdx'
 import { PageHeader, Card } from 'app/components/ui'
-import { photoBySrc } from 'app/photos/data'
+import { photoBySrc } from 'app/components/photos'
 
 export const metadata = {
   title: 'About me',
@@ -18,7 +18,6 @@ export default async function AboutPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="About"
         title="About me"
         lead="経歴・所属・研究テーマについてまとめています。"
         image="/hoshinomura.webp"

@@ -54,7 +54,6 @@ export default function ResearchPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Activity / Research"
         title="Research"
         lead="系外惑星のトランジット時刻変動(TTV)観測や、Be星の分光モニター観測に取り組んできました。"
       />

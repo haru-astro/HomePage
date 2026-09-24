@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { PageHeader, Card, SectionTitle, EntryItem } from 'app/components/ui'
 import { outreachByYear, earlyOutreach, highlights } from '../data'
-import { photoBySrc } from 'app/photos/data'
+import { photoBySrc } from 'app/components/photos'
 
 export const metadata = {
   title: 'Outreach',
@@ -15,7 +15,6 @@ export default function OutreachPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Activity / Outreach"
         title="Outreach"
         lead={`天文学オリンピックの代表研修やプラネタリウム投影など、これまでに ${highlights.outreach} 件以上の教育・アウトリーチ活動に講師・スタッフとして関わってきました。`}
         image="/planetarium.webp"

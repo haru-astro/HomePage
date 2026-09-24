@@ -1,17 +1,16 @@
 import { BlogPosts } from 'app/components/posts'
 import { PageHeader, Card } from 'app/components/ui'
-import { photoBySrc } from 'app/photos/data'
+import { photoBySrc } from 'app/components/photos'
 
 export const metadata = {
   title: 'Blog',
-  description: '早川晴のブログ記事の一覧。',
+  description: '早川晴のBlog記事の一覧。',
 }
 
 export default function Page() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Blog"
         title="Blog"
         lead="日々考えたことや、このサイトについての記事を書いています。"
         image="/bluepond.webp"

@@ -18,7 +18,6 @@ export function Card({
 
 /** 各ページ共通のヘッダー。画像は主役ではなく帯として扱う */
 export function PageHeader({
-  eyebrow,
   title,
   lead,
   image,
@@ -26,7 +25,6 @@ export function PageHeader({
   location,
   priority = false,
 }: {
-  eyebrow?: string
   title: string
   lead?: ReactNode
   image?: string
@@ -38,7 +36,7 @@ export function PageHeader({
   return (
     <header className={`${cardClass} overflow-hidden`}>
       {image && (
-        <div className="relative h-36 w-full sm:h-44 md:h-52">
+        <div className="relative h-56 w-full sm:h-72 md:h-80">
           <Image
             src={image}
             alt={alt ?? ''}
@@ -51,11 +49,6 @@ export function PageHeader({
         </div>
       )}
       <div className="space-y-3 p-6 sm:p-8">
-        {eyebrow && (
-          <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
-            {eyebrow}
-          </p>
-        )}
         <h1 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-4xl">
           {title}
         </h1>

@@ -38,7 +38,6 @@ export default function ProjectsPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Projects"
         title="Projects"
         lead="研究の解析ツールから Web サイトまで、自分で作ったものをまとめています。"
       />

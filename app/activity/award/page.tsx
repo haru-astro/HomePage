@@ -11,7 +11,6 @@ export default function AwardPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Activity / Award"
         title="Award & Training"
         lead="天文学オリンピックをはじめとする大会での成績と、参加した研修プログラムの記録です。"
       />

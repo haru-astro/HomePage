@@ -1,6 +1,6 @@
 import { PageHeader, Card, NavCard, Stat } from 'app/components/ui'
 import { highlights } from './data'
-import { photoBySrc } from 'app/photos/data'
+import { photoBySrc } from 'app/components/photos'
 
 export const metadata = {
   title: 'Activity',
@@ -12,7 +12,6 @@ export default function ActivityPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Activity"
         title="Activity"
         lead="天文学の研究と、天文学オリンピックを中心とした教育・アウトリーチ活動に取り組んでいます。それぞれの詳しい記録は下のページにまとめています。"
         image="/poland.webp"

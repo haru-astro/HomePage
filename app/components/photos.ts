@@ -1,7 +1,7 @@
 /**
- * 写真ギャラリーの一次データ。
- * public/ に画像を置き、ここに1件追加すれば一覧・トップページの両方に反映される。
- * location を入れると、帯写真やギャラリーの右下に撮影地ラベルが出る。
+ * 各ページの帯写真の一次データ。写真は1ページにつき1枚使う。
+ * public/ に画像を置き、ここに1件追加してページ側で src を指定する。
+ * location を入れると、帯写真の右下に撮影地ラベルが出る。
  */
 
 export type Photo = {
@@ -43,7 +43,7 @@ export const photos: Photo[] = [
   },
 ]
 
-/** src から写真を引く（各ページの帯写真に撮影地を出すため） */
+/** src から写真を引く（帯写真に撮影地を出すため） */
 export function photoBySrc(src: string): Photo | undefined {
   return photos.find((p) => p.src === src)
 }
