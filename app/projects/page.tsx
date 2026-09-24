@@ -41,7 +41,7 @@ export default function ProjectsPage() {
     <section className="space-y-8">
       <PageHeader
         title="Projects"
-        lead="運営で使うツールから Web アプリまで、これまでに作ってきたものをまとめています。"
+        lead="研究の解析ツールから Web アプリまで、これまでに作ってきたものをまとめています。"
         image="/malaysia.webp"
         location={photoBySrc('/malaysia.webp')?.location || undefined}
         position={photoBySrc('/malaysia.webp')?.position}
