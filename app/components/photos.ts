@@ -24,8 +24,7 @@ export const photos: Photo[] = [
   {
     src: '/milkyway.webp',
     title: '天の川',
-    // TODO: 撮影地を記入してください
-    location: '',
+    location: '長野県 小諸市',
   },
   {
     src: '/poland.webp',
