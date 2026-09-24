@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { PageHeader, Card, SectionTitle, EntryItem, ListRow } from 'app/components/ui'
 import { education, awards, trainings, memberships } from '../data'
+import { photoBySrc } from 'app/components/photos'
 
 export const metadata = {
   title: 'Career',
@@ -13,6 +14,10 @@ export default function CareerPage() {
       <PageHeader
         title="Career"
         lead="学歴と、これまでの受賞・研修、所属している団体をまとめています。"
+        image="/china_greatwall.webp"
+        location={photoBySrc('/china_greatwall.webp')?.location || undefined}
+        alt="万里の長城"
+        priority
       />
 
       <Card className="space-y-4 p-6 sm:p-8">

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { PageHeader, Card, SectionTitle, Chip } from 'app/components/ui'
 import { projects, usedStack, categoryLabel, type Project } from './data'
+import { photoBySrc } from 'app/components/photos'
 
 export const metadata = {
   title: 'Projects',
@@ -39,6 +40,10 @@ export default function ProjectsPage() {
       <PageHeader
         title="Projects"
         lead="研究の解析ツールから Web サイトまで、自分で作ったものをまとめています。"
+        image="/malaysia.webp"
+        location={photoBySrc('/malaysia.webp')?.location || undefined}
+        alt="ペトロナスツインタワー"
+        priority
       />
 
       {stack.length > 0 && (

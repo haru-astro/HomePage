@@ -13,9 +13,9 @@ export default function Page() {
       <PageHeader
         title="Blog"
         lead="日々考えたことや、このサイトについての記事を書いています。"
-        image="/bluepond.webp"
-        location={photoBySrc('/bluepond.webp')?.location || undefined}
-        alt="青い池@北海道美瑛町"
+        image="/cambodia.webp"
+        location={photoBySrc('/cambodia.webp')?.location || undefined}
+        alt="アンコールワット"
         priority
       />
       <Card className="p-6 sm:p-8">

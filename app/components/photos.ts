@@ -12,6 +12,11 @@ export type Photo = {
   location?: string
   /** 撮影時期（任意） */
   date?: string
+  /**
+   * 帯に切り出すときの位置。既定は中央。
+   * 被写体が上寄り・下寄りの写真で 'top' / 'bottom' を指定する。
+   */
+  position?: 'top' | 'center' | 'bottom'
 }
 
 export const photos: Photo[] = [
@@ -22,16 +27,6 @@ export const photos: Photo[] = [
     location: '',
   },
   {
-    src: '/bluepond.webp',
-    title: '青い池',
-    location: '北海道 美瑛町',
-  },
-  {
-    src: '/hoshinomura.webp',
-    title: '星の村天文台',
-    location: '福島県 田村市',
-  },
-  {
     src: '/poland.webp',
     title: 'ホジュフの街並み',
     location: 'ポーランド ホジュフ',
@@ -40,6 +35,26 @@ export const photos: Photo[] = [
     src: '/planetarium.webp',
     title: 'プラネタリウム',
     location: '平塚市博物館',
+  },
+  {
+    src: '/uzbekistan.webp',
+    title: 'レギスタン広場',
+    location: 'ウズベキスタン サマルカンド',
+  },
+  {
+    src: '/china_greatwall.webp',
+    title: '万里の長城',
+    location: '中国 北京',
+  },
+  {
+    src: '/malaysia.webp',
+    title: 'ペトロナスツインタワー',
+    location: 'マレーシア クアラルンプール',
+  },
+  {
+    src: '/cambodia.webp',
+    title: 'アンコールワット',
+    location: 'カンボジア シェムリアップ',
   },
 ]
 

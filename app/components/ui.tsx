@@ -23,6 +23,7 @@ export function PageHeader({
   image,
   alt,
   location,
+  position = 'center',
   priority = false,
 }: {
   title: string
@@ -31,8 +32,17 @@ export function PageHeader({
   alt?: string
   /** 帯写真の撮影地。指定すると画像右下に控えめに表示される */
   location?: string
+  /** 帯に切り出す位置。被写体が上寄り・下寄りの写真で使う */
+  position?: 'top' | 'center' | 'bottom'
   priority?: boolean
 }) {
+  const objectPosition =
+    position === 'top'
+      ? 'object-top'
+      : position === 'bottom'
+        ? 'object-bottom'
+        : 'object-center'
+
   return (
     <header className={`${cardClass} overflow-hidden`}>
       {image && (
@@ -43,7 +53,7 @@ export function PageHeader({
             fill
             sizes="(max-width: 896px) 100vw, 896px"
             priority={priority}
-            className="object-cover"
+            className={`object-cover ${objectPosition}`}
           />
           {location && <PhotoCredit>{location}</PhotoCredit>}
         </div>
