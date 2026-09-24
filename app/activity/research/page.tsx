@@ -3,7 +3,7 @@ import { PageHeader, Card, SectionTitle, EntryItem } from 'app/components/ui'
 import { papers, talks, talkKindLabel, type Talk, type TalkKind } from '../data'
 
 export const metadata = {
-  title: '研究業績',
+  title: 'Research',
   description: '早川晴の論文と、学会・研究会での発表の一覧。',
 }
 
@@ -54,13 +54,18 @@ export default function ResearchPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Works / Research"
-        title="研究業績"
+        eyebrow="Activity / Research"
+        title="Research"
         lead="系外惑星のトランジット時刻変動(TTV)観測や、Be星の分光モニター観測に取り組んできました。"
       />
 
       <Card className="space-y-6 p-6 sm:p-8">
-        <SectionTitle count={papers.length}>論文</SectionTitle>
+        <SectionTitle
+          count={papers.length}
+          note={`うち筆頭 ${papers.filter((p) => p.role === 'first').length}`}
+        >
+          論文
+        </SectionTitle>
         <ul className="space-y-4">
           {papers.map((p) => (
             <EntryItem
@@ -91,7 +96,9 @@ export default function ResearchPage() {
       </Card>
 
       <Card className="space-y-6 p-6 sm:p-8">
-        <SectionTitle count={talks.length}>研究会・セミナー発表</SectionTitle>
+        <SectionTitle count={talks.length} note={`うち筆頭 ${firstAuthorTalks}`}>
+          研究会・セミナー発表
+        </SectionTitle>
 
         <div>
           <h3 className="mb-4 inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white dark:bg-slate-100 dark:text-slate-900">
@@ -109,10 +116,10 @@ export default function ResearchPage() {
       </Card>
 
       <Link
-        href="/works"
+        href="/activity"
         className="inline-flex text-sm text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
       >
-        ← 主な活動へ戻る
+        ← Activity へ戻る
       </Link>
     </section>
   )

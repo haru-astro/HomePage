@@ -5,14 +5,10 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: '/activity',
-        destination: '/works',
-        permanent: true,
-      },
+      // /activity は実ページに戻したのでリダイレクトしない
       {
         source: '/outreach',
-        destination: '/works/outreach',
+        destination: '/activity/outreach',
         permanent: true,
       },
     ]

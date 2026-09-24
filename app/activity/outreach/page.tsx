@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { PageHeader, Card, SectionTitle, EntryItem } from 'app/components/ui'
 import { outreachByYear, earlyOutreach, highlights } from '../data'
+import { photoBySrc } from 'app/photos/data'
 
 export const metadata = {
-  title: 'アウトリーチ・教育',
+  title: 'Outreach',
   description:
     '早川晴が講師・スタッフとして関わった天文教育・アウトリーチ活動の年別の記録。',
 }
@@ -14,10 +15,11 @@ export default function OutreachPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Works / Outreach"
-        title="アウトリーチ・教育"
+        eyebrow="Activity / Outreach"
+        title="Outreach"
         lead={`天文学オリンピックの代表研修やプラネタリウム投影など、これまでに ${highlights.outreach} 件以上の教育・アウトリーチ活動に講師・スタッフとして関わってきました。`}
         image="/planetarium.webp"
+        location={photoBySrc('/planetarium.webp')?.location || undefined}
         alt="平塚市博物館のプラネタリウム"
         priority
       />
@@ -53,10 +55,10 @@ export default function OutreachPage() {
       </Card>
 
       <Link
-        href="/works"
+        href="/activity"
         className="inline-flex text-sm text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
       >
-        ← 主な活動へ戻る
+        ← Activity へ戻る
       </Link>
     </section>
   )

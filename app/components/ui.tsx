@@ -23,6 +23,7 @@ export function PageHeader({
   lead,
   image,
   alt,
+  location,
   priority = false,
 }: {
   eyebrow?: string
@@ -30,6 +31,8 @@ export function PageHeader({
   lead?: ReactNode
   image?: string
   alt?: string
+  /** 帯写真の撮影地。指定すると画像右下に控えめに表示される */
+  location?: string
   priority?: boolean
 }) {
   return (
@@ -44,6 +47,7 @@ export function PageHeader({
             priority={priority}
             className="object-cover"
           />
+          {location && <PhotoCredit>{location}</PhotoCredit>}
         </div>
       )}
       <div className="space-y-3 p-6 sm:p-8">
@@ -68,18 +72,26 @@ export function PageHeader({
 export function SectionTitle({
   children,
   count,
+  note,
 }: {
   children: ReactNode
   count?: number
+  /** 件数の内訳。「うち筆頭 4」のように渡す */
+  note?: string
 }) {
   return (
-    <div className="flex items-baseline gap-3">
+    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
       <h2 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-slate-50">
         {children}
       </h2>
       {typeof count === 'number' && (
-        <span className="text-sm tabular-nums text-slate-400 dark:text-slate-500">
+        <span className="ml-1 text-sm tabular-nums text-slate-400 dark:text-slate-500">
           {count}
+        </span>
+      )}
+      {note && (
+        <span className="text-xs tabular-nums text-slate-500 dark:text-slate-400">
+          ({note})
         </span>
       )}
     </div>
@@ -130,15 +142,49 @@ export function NavCard({
   )
 }
 
-/** 実績サマリの数値 */
-export function Stat({ value, label }: { value: string | number; label: string }) {
+/** 実績サマリの数値。note には「うち筆頭 4」のような内訳を渡す */
+export function Stat({
+  value,
+  label,
+  note,
+}: {
+  value: string | number
+  label: string
+  note?: string
+}) {
   return (
     <div className="rounded-2xl bg-slate-100/80 px-4 py-3 dark:bg-slate-800/60">
-      <p className="text-2xl font-semibold tabular-nums text-slate-950 dark:text-slate-50">
-        {value}
+      <p className="flex items-baseline gap-1.5">
+        <span className="text-2xl font-semibold tabular-nums text-slate-950 dark:text-slate-50">
+          {value}
+        </span>
+        {note && (
+          <span className="text-xs tabular-nums text-slate-500 dark:text-slate-400">
+            ({note})
+          </span>
+        )}
       </p>
       <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{label}</p>
     </div>
+  )
+}
+
+/** 写真の上に重ねる撮影地ラベル */
+export function PhotoCredit({ children }: { children: ReactNode }) {
+  return (
+    <span className="pointer-events-none absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-slate-950/45 px-2.5 py-1 text-[11px] font-medium text-white/90 backdrop-blur-sm">
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+        className="shrink-0"
+      >
+        <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+      </svg>
+      {children}
+    </span>
   )
 }
 

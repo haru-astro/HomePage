@@ -2,6 +2,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import { CustomMDX } from 'app/components/mdx'
 import { PageHeader, Card } from 'app/components/ui'
+import { photoBySrc } from 'app/photos/data'
 
 export const metadata = {
   title: 'About me',
@@ -21,6 +22,7 @@ export default async function AboutPage() {
         title="About me"
         lead="経歴・所属・研究テーマについてまとめています。"
         image="/hoshinomura.webp"
+        location={photoBySrc('/hoshinomura.webp')?.location || undefined}
         alt="星の村天文台"
         priority
       />

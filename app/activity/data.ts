@@ -261,10 +261,18 @@ export function outreachByYear(): { year: number; events: OutreachEvent[] }[] {
   }))
 }
 
-/** トップページ・ハブで使う実績サマリ */
+/** トップページ・ハブで使う実績サマリ（筆頭・共著の内訳つき） */
 export const highlights = {
   awards: awards.length,
-  papers: papers.length,
-  talks: talks.length,
+  papers: {
+    total: papers.length,
+    first: papers.filter((p) => p.role === 'first').length,
+    co: papers.filter((p) => p.role === 'co').length,
+  },
+  talks: {
+    total: talks.length,
+    first: talks.filter((t) => t.role === 'first').length,
+    co: talks.filter((t) => t.role === 'co').length,
+  },
   outreach: outreachEvents.length,
 }

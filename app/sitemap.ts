@@ -12,10 +12,12 @@ export default async function sitemap() {
   let routes = [
     '',
     '/aboutme',
-    '/works',
-    '/works/research',
-    '/works/award',
-    '/works/outreach',
+    '/activity',
+    '/activity/research',
+    '/activity/award',
+    '/activity/outreach',
+    '/projects',
+    '/photos',
     '/blog',
   ].map((route) => ({
     url: `${baseUrl}${route}`,

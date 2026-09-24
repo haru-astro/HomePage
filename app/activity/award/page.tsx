@@ -3,7 +3,7 @@ import { PageHeader, Card, SectionTitle, EntryItem } from 'app/components/ui'
 import { awards, trainings } from '../data'
 
 export const metadata = {
-  title: '受賞・研修',
+  title: 'Award & Training',
   description: '早川晴の受賞歴と、参加した研修プログラムの一覧。',
 }
 
@@ -11,8 +11,8 @@ export default function AwardPage() {
   return (
     <section className="space-y-8">
       <PageHeader
-        eyebrow="Works / Award"
-        title="受賞・研修"
+        eyebrow="Activity / Award"
+        title="Award & Training"
         lead="天文学オリンピックをはじめとする大会での成績と、参加した研修プログラムの記録です。"
       />
 
@@ -48,10 +48,10 @@ export default function AwardPage() {
       </Card>
 
       <Link
-        href="/works"
+        href="/activity"
         className="inline-flex text-sm text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
       >
-        ← 主な活動へ戻る
+        ← Activity へ戻る
       </Link>
     </section>
   )

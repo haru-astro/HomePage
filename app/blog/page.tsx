@@ -1,5 +1,6 @@
 import { BlogPosts } from 'app/components/posts'
 import { PageHeader, Card } from 'app/components/ui'
+import { photoBySrc } from 'app/photos/data'
 
 export const metadata = {
   title: 'Blog',
@@ -14,6 +15,7 @@ export default function Page() {
         title="Blog"
         lead="日々考えたことや、このサイトについての記事を書いています。"
         image="/bluepond.webp"
+        location={photoBySrc('/bluepond.webp')?.location || undefined}
         alt="青い池@北海道美瑛町"
         priority
       />
