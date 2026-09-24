@@ -13,7 +13,7 @@ export default async function sitemap() {
     '',
     '/activity',
     '/activity/research',
-    '/activity/award',
+    '/activity/career',
     '/activity/outreach',
     '/projects',
     '/blog',

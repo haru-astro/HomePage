@@ -1,6 +1,6 @@
-import { PageHeader, Card, NavCard, Stat, SectionTitle, ListRow } from 'app/components/ui'
+import { PageHeader, Card, NavCard, Stat } from 'app/components/ui'
 import { photoBySrc } from 'app/components/photos'
-import { highlights, education, memberships } from './data'
+import { highlights } from './data'
 
 export const metadata = {
   title: 'Activity',
@@ -44,9 +44,9 @@ export default function ActivityPage() {
           description="論文と、学会・研究会での発表の一覧。"
         />
         <NavCard
-          href="/activity/award"
-          title="Award & Training"
-          description="オリンピックでの受賞歴と、参加した研修プログラム。"
+          href="/activity/career"
+          title="Career"
+          description="学歴・受賞歴・研修・所属団体。"
         />
         <NavCard
           href="/activity/outreach"
@@ -55,30 +55,6 @@ export default function ActivityPage() {
         />
       </div>
 
-      <Card className="space-y-4 p-6 sm:p-8">
-        <SectionTitle>Education</SectionTitle>
-        <div className="space-y-1">
-          {education.map((e) => (
-            <ListRow key={e.period} meta={e.period} wideMeta>
-              {e.school}
-            </ListRow>
-          ))}
-        </div>
-      </Card>
-
-      <Card className="space-y-4 p-6 sm:p-8">
-        <SectionTitle>Member</SectionTitle>
-        <ul className="space-y-2">
-          {memberships.map((m) => (
-            <li
-              key={m}
-              className="border-l-2 border-slate-200 pl-4 leading-7 text-slate-700 dark:border-slate-700 dark:text-slate-300"
-            >
-              {m}
-            </li>
-          ))}
-        </ul>
-      </Card>
     </section>
   )
 }
