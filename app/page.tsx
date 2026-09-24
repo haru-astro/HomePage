@@ -63,7 +63,7 @@ export default function Page() {
         <NavCard
           href="/projects"
           title="Projects"
-          description="制作したソフトウェアとツール。"
+          description="研究用ツールや、開発したwebアプリの紹介。"
         />
       </div>
 

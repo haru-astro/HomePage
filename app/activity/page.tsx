@@ -72,7 +72,7 @@ export default function ActivityPage() {
         <NavCard
           href="/activity/outreach"
           title="Outreach"
-          description="講師・スタッフとして関わった活動の年別の記録。"
+          description="講師・スタッフとして関わった活動の記録。"
         />
       </div>
 

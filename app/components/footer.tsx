@@ -12,8 +12,33 @@ function GitHubIcon() {
   )
 }
 
+function InstagramIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5.5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
 const links = [
   { name: 'GitHub', href: 'https://github.com/haru-astro', icon: GitHubIcon },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/haru_nightsky/',
+    icon: InstagramIcon,
+  },
 ]
 
 export default function Footer() {

@@ -88,7 +88,7 @@ export const education: Education[] = [
   },
   {
     period: '2024 April - 2026 March',
-    school: '東京大学教養学部前期課程理科一類',
+    school: '東京大学教養学部前期課程理科一類（推薦入学）',
   },
   {
     period: '2018 April - 2024 March',

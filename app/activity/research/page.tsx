@@ -58,7 +58,7 @@ export default function ResearchPage() {
     <section className="space-y-8">
       <PageHeader
         title="Research"
-        lead="系外惑星のトランジット時刻変動(TTV)観測や、Be星の分光モニター観測に取り組んできました。"
+        lead="系外惑星のトランジット時刻変動(TTV)観測や、Be星の分光モニター観測に取り組んできました。現在、銀河系バルジ内に存在するMira型変更星に関する研究を進めています。"
         image="/hoshinomura.webp"
         location={photoBySrc('/hoshinomura.webp')?.location || undefined}
         alt="星の村天文台"

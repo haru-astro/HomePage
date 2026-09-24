@@ -13,6 +13,12 @@
     min-height: 100vh;
     background-color: transparent;
     color: #0f172a;
+    /*
+     * 日本語を文節単位で折り返す。これがないと「中高生」が
+     * 「中 / 高生」のように語の途中で切れる。
+     * Chrome 119+ で有効。非対応ブラウザは従来どおりの折り返しになる。
+     */
+    word-break: auto-phrase;
   }
 
   @media (prefers-color-scheme: dark) {
