@@ -61,7 +61,7 @@ export type OutreachEvent = {
 export const featured: Featured[] = [
   {
     title: '国際天文学・天体物理学オリンピック 日本代表',
-    detail: '第16回大会 出場',
+    detail: '第16回ポーランド大会 出場',
     period: '2023',
   },
   {
@@ -88,7 +88,7 @@ export const education: Education[] = [
   },
   {
     period: '2024 April - 2026 March',
-    school: '東京大学教養学部前期過程理科一類',
+    school: '東京大学教養学部前期課程理科一類',
   },
   {
     period: '2018 April - 2024 March',

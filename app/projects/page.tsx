@@ -84,11 +84,22 @@ export default function ProjectsPage() {
                     {p.description}
                   </p>
 
-                  <div className="mt-auto flex flex-wrap gap-2 pt-1">
-                    {p.stack.map((s) => (
-                      <Chip key={s}>{s}</Chip>
-                    ))}
-                  </div>
+                  {p.role && (
+                    <p className="border-l-2 border-slate-300 pl-3 text-sm leading-6 text-slate-500 dark:border-slate-600 dark:text-slate-400">
+                      <span className="mr-2 font-medium text-slate-700 dark:text-slate-300">
+                        担当
+                      </span>
+                      {p.role}
+                    </p>
+                  )}
+
+                  {p.stack.length > 0 && (
+                    <div className="mt-auto flex flex-wrap gap-2 pt-1">
+                      {p.stack.map((s) => (
+                        <Chip key={s}>{s}</Chip>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Card>
             ))}

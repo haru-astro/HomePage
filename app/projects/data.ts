@@ -13,6 +13,11 @@ export type Project = {
   /** 制作時期 */
   period?: string
   /**
+   * この成果物での担当範囲。
+   * 途中参加や一部担当のときに、関わり方を明示するために使う。
+   */
+  role?: string
+  /**
    * 動いている様子を見せるメディア。public/ に置いたファイルのパスを書く。
    * GIF (.gif) か静止画 (.webp / .png) を想定。未指定なら準備中と表示される。
    */
@@ -30,6 +35,31 @@ export const categoryLabel: Record<Project['category'], string> = {
 }
 
 export const projects: Project[] = [
+  {
+    title: '作問カンバン',
+    description:
+      'アイデア出しから問題作成・レビュー・完成まで、4択問題づくりをチームで管理するカンバンボード。担当者・分野・難易度でカードを絞り込め、未完成の問題だけを表示することもできる。',
+    stack: ['Next.js', 'React', 'Tailwind CSS'],
+    // TODO: 制作時期を記入
+    // period: '2025 -',
+    // public/ に録画した GIF を置いて、そのパスをここに書く
+    // media: '/projects/kanban.gif',
+    // mediaAlt: 'カードを作成してレビューに回す様子',
+    category: 'web',
+  },
+  {
+    title: 'シフト提出アプリ',
+    description:
+      'スタッフがシフトを提出し、集計を行うための Web アプリ。',
+    role: '開発初期からの参加ではなく、途中から加わって追加機能の実装とバグ修正を担当。',
+    // TODO: 使用技術を記入
+    stack: [],
+    // TODO: 参加時期を記入
+    // period: '2025 -',
+    // media: '/projects/shift.gif',
+    // mediaAlt: 'シフトを提出する様子',
+    category: 'web',
+  },
   {
     title: 'Personal Homepage',
     description:

@@ -9,7 +9,8 @@ const news = [
   { date: '2024/05/12', text: 'サイトを公開しました。' },
 ]
 
-const keywords = ['系外惑星', '変光星', '銀河']
+/** ヒーローのキーワードタグ。書いた順にそのまま並ぶ */
+const keywords = ['銀河', '変光星', '系外惑星']
 
 const cover = photoBySrc('/milkyway.webp')
 

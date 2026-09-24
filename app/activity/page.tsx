@@ -20,7 +20,7 @@ export default function ActivityPage() {
     <section className="space-y-8">
       <PageHeader
         title="Activity"
-        lead="天文学の研究と、天文学オリンピックを中心とした教育・アウトリーチ活動に取り組んでいます。それぞれの詳しい記録は下のページにまとめています。"
+        lead="天文学の研究と、天文教育・アウトリーチ活動に取り組んでいます。それぞれの詳しい記録は下のページにまとめています。"
         image="/poland.webp"
         location={photoBySrc('/poland.webp')?.location || undefined}
         alt="ポーランド・ホジュフの街並み"
