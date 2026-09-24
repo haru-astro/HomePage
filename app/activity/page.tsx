@@ -8,12 +8,13 @@ import {
 } from 'app/components/ui'
 import { photoBySrc } from 'app/components/photos'
 import { highlights, featured } from './data'
+import { pageMetadata } from 'app/metadata'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Activity',
-  description:
-    '早川晴の学歴・研究業績・受賞・研修・アウトリーチ活動のまとめ。',
-}
+  description: '早川晴の学歴・研究業績・受賞・研修・アウトリーチ活動のまとめ。',
+  path: '/activity',
+})
 
 export default function ActivityPage() {
   return (

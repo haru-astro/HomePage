@@ -2,11 +2,13 @@ import Link from 'next/link'
 import { PageHeader, Card, SectionTitle, EntryItem } from 'app/components/ui'
 import { photoBySrc } from 'app/components/photos'
 import { papers, talks, talkKindLabel, type Talk, type TalkKind } from '../data'
+import { pageMetadata } from 'app/metadata'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Research',
   description: '早川晴の論文と、学会・研究会での発表の一覧。',
-}
+  path: '/activity/research',
+})
 
 const kindOrder: TalkKind[] = ['oral', 'poster', 'public']
 

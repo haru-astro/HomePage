@@ -2,11 +2,13 @@ import Image from 'next/image'
 import { PageHeader, Card, SectionTitle, Chip } from 'app/components/ui'
 import { projects, usedStack, categoryLabel, type Project } from './data'
 import { photoBySrc } from 'app/components/photos'
+import { pageMetadata } from 'app/metadata'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Projects',
   description: '早川晴が制作したソフトウェア・ツールのポートフォリオ。',
-}
+  path: '/projects',
+})
 
 /** 動いている様子。未登録のうちはプレースホルダを出す */
 function Preview({ project }: { project: Project }) {
@@ -39,7 +41,7 @@ export default function ProjectsPage() {
     <section className="space-y-8">
       <PageHeader
         title="Projects"
-        lead="研究の解析ツールから Web サイトまで、自分で作ったものをまとめています。"
+        lead="運営で使うツールから Web アプリまで、これまでに作ってきたものをまとめています。"
         image="/malaysia.webp"
         location={photoBySrc('/malaysia.webp')?.location || undefined}
         position={photoBySrc('/malaysia.webp')?.position}

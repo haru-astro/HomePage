@@ -14,14 +14,33 @@ export const metadata: Metadata = {
     default: '早川晴のページ',
     template: '%s | Haru HAYAKAWA',
   },
-  description: 'このサイトは, 早川晴のホームページです./This is the site of Haru Hayakawa.',
+  description:
+    '東京大学理学部天文学科の早川晴のホームページ。銀河・変光星・系外惑星の研究と、天文教育・アウトリーチ活動の記録。',
+  alternates: { canonical: baseUrl },
   openGraph: {
-    title: 'Haru HAYAKAWA',
-    description: 'This is my portfolio.',
+    title: '早川 晴 | Haru HAYAKAWA',
+    description:
+      '東京大学理学部天文学科の早川晴のホームページ。銀河・変光星・系外惑星の研究と、天文教育・アウトリーチ活動の記録。',
     url: baseUrl,
     siteName: 'Haru HAYAKAWA',
     locale: 'ja_JP',
     type: 'website',
+    images: [
+      {
+        url: `${baseUrl}/og?title=${encodeURIComponent('早川 晴 / Haru HAYAKAWA')}`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '早川 晴 | Haru HAYAKAWA',
+    description:
+      '東京大学理学部天文学科の早川晴のホームページ。銀河・変光星・系外惑星の研究と、天文教育・アウトリーチ活動の記録。',
+    images: [
+      `${baseUrl}/og?title=${encodeURIComponent('早川 晴 / Haru HAYAKAWA')}`,
+    ],
   },
   robots: {
     index: true,

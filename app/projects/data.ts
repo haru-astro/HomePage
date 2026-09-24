@@ -40,8 +40,7 @@ export const projects: Project[] = [
     description:
       'アイデア出しから問題作成・レビュー・完成まで、4択問題づくりをチームで管理するカンバンボード。担当者・分野・難易度でカードを絞り込め、未完成の問題だけを表示することもできる。',
     stack: ['Next.js', 'React', 'Tailwind CSS', 'Claude Code'],
-    // TODO: 制作時期を記入
-    // period: '2025 -',
+    period: '2026 -',
     // public/ に録画した GIF を置いて、そのパスをここに書く
     // media: '/projects/kanban.gif',
     // mediaAlt: 'カードを作成してレビューに回す様子',
@@ -50,12 +49,10 @@ export const projects: Project[] = [
   {
     title: 'シフト提出アプリ',
     description:
-      'スタッフがシフトを提出し、集計を行うための Web アプリ。',
+      '飲食店におけるスタッフがシフトを提出し、集計・シフト作成を行うための Web アプリ。',
     role: '開発初期からの参加ではなく、途中から加わって追加機能の実装とバグ修正を担当。',
-    // TODO: 使用技術を記入
-    stack: [],
-    // TODO: 参加時期を記入
-    // period: '2025 -',
+    stack: ['Next.js', 'TypeScript', 'AWS Lambda', 'Python', 'MySQL', 'Amazon SQS'],
+    period: '2026 -',
     // media: '/projects/shift.gif',
     // mediaAlt: 'シフトを提出する様子',
     category: 'web',

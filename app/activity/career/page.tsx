@@ -2,11 +2,13 @@ import Link from 'next/link'
 import { PageHeader, Card, SectionTitle, EntryItem, ListRow } from 'app/components/ui'
 import { education, awards, trainings, memberships } from '../data'
 import { photoBySrc } from 'app/components/photos'
+import { pageMetadata } from 'app/metadata'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Career',
   description: '早川晴の学歴・受賞歴・研修・所属団体。',
-}
+  path: '/activity/career',
+})
 
 export default function CareerPage() {
   return (

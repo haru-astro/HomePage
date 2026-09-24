@@ -1,6 +1,16 @@
 import { baseUrl } from 'app/sitemap'
 import { getBlogPosts } from 'app/blog/utils'
 
+/** RSS は XML なので、タイトルや概要に含まれる記号をエスケープする */
+function escapeXml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 export async function GET() {
   let allBlogs = await getBlogPosts()
 
@@ -14,9 +24,10 @@ export async function GET() {
     .map(
       (post) =>
         `<item>
-          <title>${post.metadata.title}</title>
+          <title>${escapeXml(post.metadata.title)}</title>
           <link>${baseUrl}/blog/${post.slug}</link>
-          <description>${post.metadata.summary || ''}</description>
+          <guid isPermaLink="true">${baseUrl}/blog/${post.slug}</guid>
+          <description>${escapeXml(post.metadata.summary || '')}</description>
           <pubDate>${new Date(
             post.metadata.publishedAt
           ).toUTCString()}</pubDate>
@@ -27,9 +38,10 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>My Portfolio</title>
+        <title>早川晴のページ</title>
         <link>${baseUrl}</link>
-        <description>This is my portfolio RSS feed</description>
+        <description>早川晴のブログ記事の更新情報</description>
+        <language>ja</language>
         ${itemsXml}
     </channel>
   </rss>`

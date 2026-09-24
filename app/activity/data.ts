@@ -180,6 +180,17 @@ export const talks: Talk[] = [
   {
     role: 'co',
     kind: 'oral',
+    authors: '石田, 早川(2nd), 藤井',
+    year: 2026,
+    meeting: '日本天文学会2026年秋季大会',
+    id: '恒星 N13a',
+    place: '岡山理科大学',
+    date: '2026年9月8-10日',
+    title: '可視光分光モニター観測によるBe星の伴星が星周円盤に与える影響の調査',
+  },
+  {
+    role: 'co',
+    kind: 'oral',
     authors: '中道, 市川, 早川(3rd)',
     year: 2025,
     meeting: '第39回天文教育研究会年会',
@@ -213,6 +224,12 @@ export const talks: Talk[] = [
 ]
 
 export const outreachEvents: OutreachEvent[] = [
+  {
+    year: 2026,
+    date: '8月24-25日',
+    title: '日本天文学オリンピック 代表研修 講師',
+    place: '平塚市博物館',
+  },
   {
     year: 2026,
     date: '4月26日',

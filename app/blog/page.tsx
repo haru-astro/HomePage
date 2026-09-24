@@ -1,11 +1,13 @@
 import { BlogPosts } from 'app/components/posts'
 import { PageHeader, Card } from 'app/components/ui'
 import { photoBySrc } from 'app/components/photos'
+import { pageMetadata } from 'app/metadata'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Blog',
   description: '早川晴のBlog記事の一覧。',
-}
+  path: '/blog',
+})
 
 export default function Page() {
   return (

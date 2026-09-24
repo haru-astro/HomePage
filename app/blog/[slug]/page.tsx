@@ -32,6 +32,7 @@ export function generateMetadata({ params }) {
   return {
     title,
     description,
+    alternates: { canonical: `${baseUrl}/blog/${post.slug}` },
     openGraph: {
       title,
       description,
@@ -75,11 +76,14 @@ export default function Blog({ params }) {
             description: post.metadata.summary,
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+              : `${baseUrl}/og?title=${encodeURIComponent(
+                  post.metadata.title
+                )}`,
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
               name: '早川 晴',
+              url: baseUrl,
             },
           }),
         }}

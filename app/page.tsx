@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { BlogPosts } from 'app/components/posts'
 import { Card, NavCard, Chip, PhotoCredit, ListRow, cardClass } from 'app/components/ui'
 import { photoBySrc } from 'app/components/photos'
+import { baseUrl } from 'app/sitemap'
 
 /** お知らせ・更新履歴。新しいものを先頭に追加する */
 const news = [
@@ -17,6 +18,30 @@ const cover = photoBySrc('/milkyway.webp')
 export default function Page() {
   return (
     <section className="space-y-8">
+      {/* 検索エンジンに人物情報を伝える */}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: '早川 晴',
+            alternateName: 'Haru Hayakawa',
+            url: baseUrl,
+            jobTitle: '学部生',
+            affiliation: {
+              '@type': 'CollegeOrUniversity',
+              name: '東京大学 理学部 天文学科',
+            },
+            knowsAbout: ['天文学', '銀河', '変光星', '系外惑星'],
+            sameAs: [
+              'https://github.com/haru-astro',
+              'https://www.instagram.com/haru_nightsky/',
+            ],
+          }),
+        }}
+      />
       {/* 1画面目で「誰が・何をしていて・どこを見ればいいか」が分かるようにする */}
       <header className={`${cardClass} overflow-hidden`}>
         <div className="relative h-56 w-full sm:h-72 md:h-80">
@@ -44,7 +69,7 @@ export default function Page() {
             </p>
           </div>
           <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
-            銀河・変光星・系外惑星を対象に天文学の研究をしています。あわせて、中高生を対象とした様々な天文教育・アウトリーチ活動に講師・スタッフとして関わっています。
+            銀河・変光星・系外惑星を対象に天文学の研究をしています。あわせて、中高生を対象とした様々な天文教育・アウトリーチ活動に講師・スタッフとして関わっています。webアプリ開発も行っています。
           </p>
           <div className="flex flex-wrap gap-2">
             {keywords.map((k) => (

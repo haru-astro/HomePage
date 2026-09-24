@@ -2,12 +2,13 @@ import Link from 'next/link'
 import { PageHeader, Card, SectionTitle, EntryItem } from 'app/components/ui'
 import { outreachByYear, earlyOutreach, highlights } from '../data'
 import { photoBySrc } from 'app/components/photos'
+import { pageMetadata } from 'app/metadata'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Outreach',
-  description:
-    '早川晴が講師・スタッフとして関わった天文教育・アウトリーチ活動の年別の記録。',
-}
+  description: '早川晴が講師・スタッフとして関わった天文教育・アウトリーチ活動の年別の記録。',
+  path: '/activity/outreach',
+})
 
 export default function OutreachPage() {
   const years = outreachByYear()
