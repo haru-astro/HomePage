@@ -39,7 +39,7 @@ export const projects: Project[] = [
     title: '作問カンバン',
     description:
       'アイデア出しから問題作成・レビュー・完成まで、4択問題づくりをチームで管理するカンバンボード。担当者・分野・難易度でカードを絞り込め、未完成の問題だけを表示することもできる。',
-    stack: ['Next.js', 'React', 'Tailwind CSS'],
+    stack: ['Next.js', 'React', 'Tailwind CSS', 'Claude Code'],
     // TODO: 制作時期を記入
     // period: '2025 -',
     // public/ に録画した GIF を置いて、そのパスをここに書く
