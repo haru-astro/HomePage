@@ -15,6 +15,7 @@ export default function Page() {
         lead="日々考えたことや、このサイトについての記事を書いています。"
         image="/cambodia.webp"
         location={photoBySrc('/cambodia.webp')?.location || undefined}
+        position={photoBySrc('/cambodia.webp')?.position}
         alt="アンコールワット"
         priority
       />

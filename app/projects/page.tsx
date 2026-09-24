@@ -42,6 +42,7 @@ export default function ProjectsPage() {
         lead="研究の解析ツールから Web サイトまで、自分で作ったものをまとめています。"
         image="/malaysia.webp"
         location={photoBySrc('/malaysia.webp')?.location || undefined}
+        position={photoBySrc('/malaysia.webp')?.position}
         alt="ペトロナスツインタワー"
         priority
       />

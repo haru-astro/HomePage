@@ -13,10 +13,11 @@ export type Photo = {
   /** 撮影時期（任意） */
   date?: string
   /**
-   * 帯に切り出すときの位置。既定は中央。
-   * 被写体が上寄り・下寄りの写真で 'top' / 'bottom' を指定する。
+   * 横長の帯に切り出すとき、元画像のどのあたりを使うか。
+   * 0 = 一番上, 50 = 中央(既定), 100 = 一番下。
+   * 55〜60 くらいで「ほんの少し下」、30 や 75 まで振ると「割と動く」。
    */
-  position?: 'top' | 'center' | 'bottom'
+  position?: number
 }
 
 export const photos: Photo[] = [
@@ -40,11 +41,13 @@ export const photos: Photo[] = [
     src: '/uzbekistan.webp',
     title: 'レギスタン広場',
     location: 'ウズベキスタン サマルカンド',
+    position: 65,
   },
   {
     src: '/china_greatwall.webp',
     title: '万里の長城',
     location: '中国 北京',
+    position: 30,
   },
   {
     src: '/malaysia.webp',
@@ -55,6 +58,7 @@ export const photos: Photo[] = [
     src: '/cambodia.webp',
     title: 'アンコールワット',
     location: 'カンボジア シェムリアップ',
+    position: 60,
   },
 ]
 

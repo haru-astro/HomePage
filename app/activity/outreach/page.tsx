@@ -19,6 +19,7 @@ export default function OutreachPage() {
         lead={`天文学オリンピックの代表研修やプラネタリウム投影など、これまでに ${highlights.outreach} 件以上の教育・アウトリーチ活動に講師・スタッフとして関わってきました。`}
         image="/planetarium.webp"
         location={photoBySrc('/planetarium.webp')?.location || undefined}
+        position={photoBySrc('/planetarium.webp')?.position}
         alt="平塚市博物館のプラネタリウム"
         priority
       />

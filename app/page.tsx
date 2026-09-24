@@ -27,6 +27,7 @@ export default function Page() {
             sizes="(max-width: 896px) 100vw, 896px"
             priority
             className="object-cover"
+            style={{ objectPosition: `50% ${cover?.position ?? 50}%` }}
           />
           {cover?.location && <PhotoCredit>{cover.location}</PhotoCredit>}
         </div>

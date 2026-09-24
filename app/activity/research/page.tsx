@@ -61,6 +61,7 @@ export default function ResearchPage() {
         lead="系外惑星のトランジット時刻変動(TTV)観測や、Be星の分光モニター観測に取り組んできました。現在、銀河系バルジ内に存在するMira型変更星に関する研究を進めています。"
         image="/uzbekistan.webp"
         location={photoBySrc('/uzbekistan.webp')?.location || undefined}
+        position={photoBySrc('/uzbekistan.webp')?.position}
         alt="レギスタン広場"
         priority
       />

@@ -23,6 +23,7 @@ export default function ActivityPage() {
         lead="天文学の研究と、天文教育・アウトリーチ活動に取り組んでいます。それぞれの詳しい記録は下のページにまとめています。"
         image="/poland.webp"
         location={photoBySrc('/poland.webp')?.location || undefined}
+        position={photoBySrc('/poland.webp')?.position}
         alt="ポーランド・ホジュフの街並み"
         priority
       />

@@ -16,6 +16,7 @@ export default function CareerPage() {
         lead="学歴と、これまでの受賞・研修、所属している団体をまとめています。"
         image="/china_greatwall.webp"
         location={photoBySrc('/china_greatwall.webp')?.location || undefined}
+        position={photoBySrc('/china_greatwall.webp')?.position}
         alt="万里の長城"
         priority
       />
