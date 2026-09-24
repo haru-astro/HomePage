@@ -209,13 +209,13 @@ export function ListRow({
   const inner = (
     <>
       <span
-        className={`shrink-0 text-sm leading-7 tabular-nums text-slate-500 dark:text-slate-400 ${
-          wideMeta ? 'md:w-56' : 'md:w-32'
+        className={`shrink-0 whitespace-nowrap text-xs leading-7 tabular-nums text-slate-500 dark:text-slate-400 ${
+          wideMeta ? 'md:w-48' : 'md:w-24'
         }`}
       >
         {meta}
       </span>
-      <span className="leading-7 tracking-tight text-slate-900 dark:text-slate-100">
+      <span className="text-sm leading-7 tracking-tight text-slate-900 dark:text-slate-100">
         {children}
       </span>
     </>

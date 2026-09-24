@@ -5,8 +5,8 @@ import { photoBySrc } from 'app/components/photos'
 
 /** お知らせ・更新履歴。新しいものを先頭に追加する */
 const news = [
-  { date: '2025年8月16日', text: 'サイトをアップデートしました。' },
-  { date: '2024年5月12日', text: 'サイトを公開しました。' },
+  { date: '2025/08/16', text: 'サイトをアップデートしました。' },
+  { date: '2024/05/12', text: 'サイトを公開しました。' },
 ]
 
 const keywords = ['系外惑星', '変光星', '銀河']

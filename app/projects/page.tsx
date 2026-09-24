@@ -1,5 +1,6 @@
+import Image from 'next/image'
 import { PageHeader, Card, SectionTitle, Chip } from 'app/components/ui'
-import { projects, usedStack, categoryLabel } from './data'
+import { projects, usedStack, categoryLabel, type Project } from './data'
 
 export const metadata = {
   title: 'Projects',
@@ -32,6 +33,30 @@ function ExternalLink({ href, label }: { href: string; label: string }) {
   )
 }
 
+/** 動いている様子。未登録のうちはプレースホルダを出す */
+function Preview({ project }: { project: Project }) {
+  if (!project.media) {
+    return (
+      <div className="flex aspect-video w-full items-center justify-center border-b border-slate-200/80 bg-slate-100/70 text-xs text-slate-400 dark:border-slate-800/80 dark:bg-slate-800/50 dark:text-slate-500">
+        動作の様子は準備中です
+      </div>
+    )
+  }
+
+  return (
+    <div className="relative aspect-video w-full overflow-hidden border-b border-slate-200/80 bg-slate-100 dark:border-slate-800/80 dark:bg-slate-800">
+      <Image
+        src={project.media}
+        alt={project.mediaAlt ?? `${project.title}の動作の様子`}
+        fill
+        sizes="(max-width: 640px) 100vw, 440px"
+        unoptimized
+        className="object-cover"
+      />
+    </div>
+  )
+}
+
 export default function ProjectsPage() {
   const stack = usedStack()
 
@@ -57,41 +82,46 @@ export default function ProjectsPage() {
         <SectionTitle count={projects.length}>Works</SectionTitle>
 
         {projects.length === 0 ? (
-          <Card className="p-8 text-center text-slate-500 dark:text-slate-400">
+          <Card className="p-8 text-center text-sm text-slate-500 dark:text-slate-400">
             準備中です。
           </Card>
         ) : (
-          <div className="grid gap-4">
+          <div className="grid gap-4 sm:grid-cols-2">
             {projects.map((p) => (
-              <Card key={p.title} className="space-y-4 p-6 sm:p-8">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="text-lg font-semibold text-slate-950 dark:text-slate-50">
-                    {p.title}
-                  </h3>
-                  <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                    <span className="rounded-full bg-slate-100 px-2.5 py-1 font-medium dark:bg-slate-800">
-                      {categoryLabel[p.category]}
-                    </span>
-                    {p.period && <span className="tabular-nums">{p.period}</span>}
+              <Card key={p.title} className="flex flex-col overflow-hidden">
+                <Preview project={p} />
+
+                <div className="flex flex-1 flex-col gap-3 p-6">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                    <h3 className="font-semibold text-slate-950 dark:text-slate-50">
+                      {p.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                      <span className="rounded-full bg-slate-100 px-2.5 py-1 font-medium dark:bg-slate-800">
+                        {categoryLabel[p.category]}
+                      </span>
+                      {p.period && (
+                        <span className="tabular-nums">{p.period}</span>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                <p className="leading-8 text-slate-600 dark:text-slate-300">
-                  {p.description}
-                </p>
+                  <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                    {p.description}
+                  </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <Chip key={s}>{s}</Chip>
-                  ))}
-                </div>
-
-                {(p.url || p.repo) && (
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {p.url && <ExternalLink href={p.url} label="サイトを見る" />}
-                    {p.repo && <ExternalLink href={p.repo} label="ソースコード" />}
+                  <div className="flex flex-wrap gap-2">
+                    {p.stack.map((s) => (
+                      <Chip key={s}>{s}</Chip>
+                    ))}
                   </div>
-                )}
+
+                  {p.url && (
+                    <div className="mt-auto pt-2">
+                      <ExternalLink href={p.url} label="サイトを見る" />
+                    </div>
+                  )}
+                </div>
               </Card>
             ))}
           </div>

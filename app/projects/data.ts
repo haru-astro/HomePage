@@ -14,8 +14,13 @@ export type Project = {
   period?: string
   /** 公開URL（あれば） */
   url?: string
-  /** ソースコード（あれば） */
-  repo?: string
+  /**
+   * 動いている様子を見せるメディア。public/ に置いたファイルのパスを書く。
+   * GIF (.gif) か静止画 (.webp / .png) を想定。未指定なら準備中と表示される。
+   */
+  media?: string
+  /** media の説明（スクリーンリーダー用） */
+  mediaAlt?: string
   /** 研究向けか、Web/ツールかの区分 */
   category: 'web' | 'research' | 'tool'
 }
@@ -34,7 +39,9 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS', 'MDX'],
     period: '2024 -',
     url: 'https://haruhayakawa.vercel.app',
-    repo: 'https://github.com/haru-astro/HomePage',
+    // public/ に録画した GIF を置いて、そのパスをここに書く
+    // media: '/projects/homepage.gif',
+    // mediaAlt: 'サイトを操作している様子',
     category: 'web',
   },
   // ここに成果物を追加してください。例:
@@ -43,7 +50,8 @@ export const projects: Project[] = [
   //   description: '系外惑星のトランジット時刻を測定し、TTV を求める解析パイプライン。',
   //   stack: ['Python', 'NumPy', 'Astropy'],
   //   period: '2025',
-  //   repo: 'https://github.com/haru-astro/...',
+  //   media: '/projects/ttv.gif',
+  //   mediaAlt: '解析が進んでいく様子',
   //   category: 'research',
   // },
 ]

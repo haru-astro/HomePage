@@ -296,7 +296,8 @@ export const highlights = {
   },
   talks: {
     total: talks.length,
-    first: talks.filter((t) => t.role === 'first').length,
+    // 一般向け講演は筆頭であることが自明なので、筆頭の件数には数えない
+    first: talks.filter((t) => t.role === 'first' && t.kind !== 'public').length,
     co: talks.filter((t) => t.role === 'co').length,
   },
   outreach: outreachEvents.length,

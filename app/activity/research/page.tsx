@@ -49,8 +49,10 @@ function TalkGroup({ role }: { role: Talk['role'] }) {
 }
 
 export default function ResearchPage() {
-  const firstAuthorTalks = talks.filter((t) => t.role === 'first').length
-  const coAuthorTalks = talks.length - firstAuthorTalks
+  // 一般向け講演は筆頭であることが自明なので、筆頭の件数には数えない
+  const firstAuthorTalks = talks.filter(
+    (t) => t.role === 'first' && t.kind !== 'public'
+  ).length
 
   return (
     <section className="space-y-8">
@@ -106,14 +108,14 @@ export default function ResearchPage() {
 
         <div>
           <h3 className="mb-4 inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white dark:bg-slate-100 dark:text-slate-900">
-            筆頭著者 {firstAuthorTalks}件
+            筆頭著者
           </h3>
           <TalkGroup role="first" />
         </div>
 
         <div className="border-t border-slate-200 pt-6 dark:border-slate-800">
           <h3 className="mb-4 inline-flex rounded-full border border-slate-300 px-3 py-1 text-xs font-semibold text-slate-700 dark:border-slate-600 dark:text-slate-300">
-            共著者 {coAuthorTalks}件
+            共著者
           </h3>
           <TalkGroup role="co" />
         </div>
