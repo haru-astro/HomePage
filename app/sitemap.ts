@@ -11,7 +11,6 @@ export default async function sitemap() {
 
   let routes = [
     '',
-    '/aboutme',
     '/activity',
     '/activity/research',
     '/activity/award',

@@ -4,6 +4,11 @@
  * 実績サマリの件数はここから自動集計される。
  */
 
+export type Education = {
+  period: string
+  school: string
+}
+
 export type Award = {
   date: string
   title: string
@@ -44,6 +49,26 @@ export type OutreachEvent = {
   title: string
   place?: string
 }
+
+export const education: Education[] = [
+  {
+    period: '2026 April - 2028 March(予定)',
+    school: '東京大学理学部天文学科',
+  },
+  {
+    period: '2024 April - 2026 March',
+    school: '東京大学教養学部前期過程理科一類',
+  },
+  {
+    period: '2018 April - 2024 March',
+    school: '横浜市立横浜サイエンスフロンティア高等学校・附属中学校',
+  },
+]
+
+/** 所属している団体 */
+export const memberships: string[] = [
+  '一般社団法人日本天文学オリンピック委員会',
+]
 
 export const awards: Award[] = [
   {

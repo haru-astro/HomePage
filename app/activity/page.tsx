@@ -1,11 +1,11 @@
-import { PageHeader, Card, NavCard, Stat } from 'app/components/ui'
-import { highlights } from './data'
+import { PageHeader, Card, NavCard, Stat, SectionTitle, ListRow } from 'app/components/ui'
 import { photoBySrc } from 'app/components/photos'
+import { highlights, education, memberships } from './data'
 
 export const metadata = {
   title: 'Activity',
   description:
-    '早川晴の研究業績・受賞・研修・アウトリーチ活動のまとめ。',
+    '早川晴の学歴・研究業績・受賞・研修・アウトリーチ活動のまとめ。',
 }
 
 export default function ActivityPage() {
@@ -54,6 +54,31 @@ export default function ActivityPage() {
           description="講師・スタッフとして関わった活動の年別の記録。"
         />
       </div>
+
+      <Card className="space-y-4 p-6 sm:p-8">
+        <SectionTitle>Education</SectionTitle>
+        <div className="space-y-1">
+          {education.map((e) => (
+            <ListRow key={e.period} meta={e.period} wideMeta>
+              {e.school}
+            </ListRow>
+          ))}
+        </div>
+      </Card>
+
+      <Card className="space-y-4 p-6 sm:p-8">
+        <SectionTitle>Member</SectionTitle>
+        <ul className="space-y-2">
+          {memberships.map((m) => (
+            <li
+              key={m}
+              className="border-l-2 border-slate-200 pl-4 leading-7 text-slate-700 dark:border-slate-700 dark:text-slate-300"
+            >
+              {m}
+            </li>
+          ))}
+        </ul>
+      </Card>
     </section>
   )
 }

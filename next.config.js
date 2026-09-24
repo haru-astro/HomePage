@@ -7,6 +7,11 @@ const nextConfig = {
     return [
       // /activity は実ページに戻したのでリダイレクトしない
       {
+        source: '/aboutme',
+        destination: '/activity',
+        permanent: true,
+      },
+      {
         source: '/outreach',
         destination: '/activity/outreach',
         permanent: true,

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { PageHeader, Card, SectionTitle, EntryItem } from 'app/components/ui'
+import { photoBySrc } from 'app/components/photos'
 import { papers, talks, talkKindLabel, type Talk, type TalkKind } from '../data'
 
 export const metadata = {
@@ -56,6 +57,10 @@ export default function ResearchPage() {
       <PageHeader
         title="Research"
         lead="系外惑星のトランジット時刻変動(TTV)観測や、Be星の分光モニター観測に取り組んできました。"
+        image="/hoshinomura.webp"
+        location={photoBySrc('/hoshinomura.webp')?.location || undefined}
+        alt="星の村天文台"
+        priority
       />
 
       <Card className="space-y-6 p-6 sm:p-8">

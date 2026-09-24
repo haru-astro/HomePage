@@ -189,6 +189,52 @@ export function Chip({ children }: { children: ReactNode }) {
   )
 }
 
+/**
+ * 「日付 + 本文」の1行。お知らせと Blog 一覧で行の高さを揃えるために共有する。
+ * href を渡すとリンクになる。
+ */
+export function ListRow({
+  meta,
+  href,
+  children,
+  wideMeta = false,
+}: {
+  meta: string
+  href?: string
+  children: ReactNode
+  /** 在学期間のように meta が長いとき、日付側の列を広げる */
+  wideMeta?: boolean
+}) {
+  const base = '-mx-3 flex flex-col rounded-2xl px-3 py-2 md:flex-row md:gap-4'
+  const inner = (
+    <>
+      <span
+        className={`shrink-0 text-sm leading-7 tabular-nums text-slate-500 dark:text-slate-400 ${
+          wideMeta ? 'md:w-56' : 'md:w-32'
+        }`}
+      >
+        {meta}
+      </span>
+      <span className="leading-7 tracking-tight text-slate-900 dark:text-slate-100">
+        {children}
+      </span>
+    </>
+  )
+
+  if (!href) {
+    return <div className={base}>{inner}</div>
+  }
+
+  return (
+    <Link
+      href={href}
+      className={`${base} transition hover:bg-slate-100/80 dark:hover:bg-slate-800/60`}
+    >
+      {inner}
+    </Link>
+  )
+}
+
 /** 年・日付つきの一覧項目 */
 export function EntryItem({
   meta,
