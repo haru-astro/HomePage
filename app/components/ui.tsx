@@ -209,8 +209,8 @@ export function ListRow({
   const inner = (
     <>
       <span
-        className={`shrink-0 whitespace-nowrap text-xs leading-7 tabular-nums text-slate-500 dark:text-slate-400 ${
-          wideMeta ? 'md:w-48' : 'md:w-24'
+        className={`shrink-0 whitespace-nowrap text-sm leading-7 tabular-nums text-slate-500 dark:text-slate-400 ${
+          wideMeta ? 'md:w-52' : 'md:w-28'
         }`}
       >
         {meta}
@@ -247,15 +247,15 @@ export function EntryItem({
 }) {
   return (
     <li className="flex flex-col gap-1 border-l-2 border-slate-200 pl-4 dark:border-slate-700 sm:flex-row sm:gap-4 sm:border-l-0 sm:pl-0">
-      <span className="shrink-0 pt-0.5 text-sm tabular-nums text-slate-500 dark:text-slate-400 sm:w-36">
+      <span className="shrink-0 text-sm leading-7 tabular-nums text-slate-500 dark:text-slate-400 sm:w-36">
         {meta}
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block leading-7 text-slate-900 dark:text-slate-100">
+        <span className="block text-sm leading-7 text-slate-900 dark:text-slate-100">
           {title}
         </span>
         {detail && (
-          <span className="mt-0.5 block text-sm leading-6 text-slate-500 dark:text-slate-400">
+          <span className="mt-0.5 block text-sm leading-7 text-slate-500 dark:text-slate-400">
             {detail}
           </span>
         )}

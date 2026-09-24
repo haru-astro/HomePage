@@ -7,32 +7,6 @@ export const metadata = {
   description: '早川晴が制作したソフトウェア・ツールのポートフォリオ。',
 }
 
-function ExternalLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
-    >
-      {label}
-      <svg
-        width="11"
-        height="11"
-        viewBox="0 0 12 12"
-        fill="none"
-        aria-hidden="true"
-        className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-      >
-        <path
-          d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-          fill="currentColor"
-        />
-      </svg>
-    </a>
-  )
-}
-
 /** 動いている様子。未登録のうちはプレースホルダを出す */
 function Preview({ project }: { project: Project }) {
   if (!project.media) {
@@ -110,17 +84,11 @@ export default function ProjectsPage() {
                     {p.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="mt-auto flex flex-wrap gap-2 pt-1">
                     {p.stack.map((s) => (
                       <Chip key={s}>{s}</Chip>
                     ))}
                   </div>
-
-                  {p.url && (
-                    <div className="mt-auto pt-2">
-                      <ExternalLink href={p.url} label="サイトを見る" />
-                    </div>
-                  )}
                 </div>
               </Card>
             ))}
