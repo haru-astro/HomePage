@@ -1,34 +1,34 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import { CustomMDX } from 'app/components/mdx';
-import Image from 'next/image';
+import { promises as fs } from 'fs'
+import path from 'path'
+import { CustomMDX } from 'app/components/mdx'
+import { PageHeader, Card } from 'app/components/ui'
 
 export const metadata = {
   title: 'About me',
-  description: 'Details about me.',
-};
+  description: '早川晴の経歴・所属・研究テーマなどのプロフィール。',
+}
 
 export default async function AboutPage() {
   const content = await fs.readFile(
     path.join(process.cwd(), 'app/aboutme/aboutme.mdx'),
     'utf8'
-  );
+  )
 
   return (
-    <section>
-      <Image
-          src="/hoshinomura.jpg" // publicフォルダからのパス
-          alt="星の村天文台"
-          width={1600} // 画像の元の幅
-          height={900} // 画像の元の高さ
-          className="w-full h-auto my-8"
-        />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        About me
-      </h1>
-      <article className="prose mt-8">
-        <CustomMDX source={content} />
-      </article>
+    <section className="space-y-8">
+      <PageHeader
+        eyebrow="About"
+        title="About me"
+        lead="経歴・所属・研究テーマについてまとめています。"
+        image="/hoshinomura.webp"
+        alt="星の村天文台"
+        priority
+      />
+      <Card className="p-6 sm:p-8">
+        <article className="prose">
+          <CustomMDX source={content} />
+        </article>
+      </Card>
     </section>
-  );
+  )
 }

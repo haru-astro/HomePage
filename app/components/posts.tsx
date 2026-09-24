@@ -1,36 +1,29 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 
-export function BlogPosts() {
-  let allBlogs = getBlogPosts()
+export function BlogPosts({ limit }: { limit?: number } = {}) {
+  const allBlogs = getBlogPosts().sort((a, b) =>
+    new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt) ? -1 : 1
+  )
+
+  const posts = typeof limit === 'number' ? allBlogs.slice(0, limit) : allBlogs
 
   return (
-    <div>
-      {allBlogs
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1
-          }
-          return 1
-        })
-        .map((post) => (
-          <Link
-            key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
-          >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[120px] tabular-nums whitespace-nowrap">
-                {formatDate(post.metadata.publishedAt, false)}
-              </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.metadata.title}
-              </p>
-            </div>
-          </Link>
-        ))}
+    <div className="space-y-1">
+      {posts.map((post) => (
+        <Link
+          key={post.slug}
+          className="-mx-3 flex flex-col rounded-2xl px-3 py-2 transition hover:bg-slate-100/80 dark:hover:bg-slate-800/60 md:flex-row md:gap-4"
+          href={`/blog/${post.slug}`}
+        >
+          <p className="shrink-0 tabular-nums text-sm leading-7 text-slate-500 dark:text-slate-400 md:w-28">
+            {formatDate(post.metadata.publishedAt, false)}
+          </p>
+          <p className="leading-7 tracking-tight text-slate-900 dark:text-slate-100">
+            {post.metadata.title}
+          </p>
+        </Link>
+      ))}
     </div>
   )
 }

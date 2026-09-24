@@ -1,7 +1,9 @@
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
+import { Card } from 'app/components/ui'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -77,22 +79,30 @@ export default function Blog({ params }) {
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'My Portfolio',
+              name: '早川 晴',
             },
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
+      <div className="space-y-6">
+        <Link
+          href="/blog"
+          className="inline-flex text-sm text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+        >
+          ← Blog一覧へ戻る
+        </Link>
+        <Card className="p-6 sm:p-8">
+          <p className="text-sm tabular-nums text-slate-500 dark:text-slate-400">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+          <h1 className="title mt-2 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50">
+            {post.metadata.title}
+          </h1>
+          <article className="prose mt-2">
+            <CustomMDX source={post.content} />
+          </article>
+        </Card>
       </div>
-      <article className="prose">
-        <CustomMDX source={post.content} />
-      </article>
     </section>
   )
 }

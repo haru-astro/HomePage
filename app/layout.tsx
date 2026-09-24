@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'This is my portfolio.',
     url: baseUrl,
     siteName: 'Haru HAYAKAWA',
-    locale: 'en_US',
+    locale: 'ja_JP',
     type: 'website',
   },
   robots: {
@@ -36,7 +36,8 @@ export const metadata: Metadata = {
   },
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const cx = (...classes: (string | undefined | false)[]): string =>
+  classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
   children,
@@ -45,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="ja"
       className={cx(
         'scroll-smooth text-slate-950 bg-slate-50 dark:text-slate-100 dark:bg-slate-950',
         GeistSans.variable,

@@ -1,23 +1,25 @@
 import { BlogPosts } from 'app/components/posts'
-import Image from 'next/image';
+import { PageHeader, Card } from 'app/components/ui'
 
 export const metadata = {
   title: 'Blog',
-  description: 'Read my blog.',
+  description: '早川晴のブログ記事の一覧。',
 }
 
 export default function Page() {
   return (
-    <section>
-      <Image
-          src="/bluepond.jpg" // publicフォルダからのパス
-          alt="青い池@北海道美瑛町"
-          width={1600} // 画像の元の幅
-          height={900} // 画像の元の高さ
-          className="w-full h-auto my-8"
-        />
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Blog</h1>
-      <BlogPosts />
+    <section className="space-y-8">
+      <PageHeader
+        eyebrow="Blog"
+        title="Blog"
+        lead="日々考えたことや、このサイトについての記事を書いています。"
+        image="/bluepond.webp"
+        alt="青い池@北海道美瑛町"
+        priority
+      />
+      <Card className="p-6 sm:p-8">
+        <BlogPosts />
+      </Card>
     </section>
   )
 }

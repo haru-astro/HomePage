@@ -1,77 +1,99 @@
-import { BlogPosts } from 'app/components/posts'
 import Image from 'next/image'
-import Link from 'next/link'
+import { BlogPosts } from 'app/components/posts'
+import { Card, NavCard, Chip, cardClass } from 'app/components/ui'
+
+/** お知らせ・更新履歴。新しいものを先頭に追加する */
+const news = [
+  { date: '2025年8月16日', text: 'サイトをアップデートしました。' },
+  { date: '2024年5月12日', text: 'サイトを公開しました。' },
+]
+
+const keywords = ['系外惑星', '変光星', '銀河']
 
 export default function Page() {
   return (
-    <section className="space-y-10">
-      <div className="rounded-[2rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-900/80">
-        <div className="grid gap-8 lg:grid-cols-[1.6fr_1fr] lg:items-center">
-          <div className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
-              Portfolio
-            </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-5xl">
-              Welcome to my Portfolio!
+    <section className="space-y-8">
+      {/* 1画面目で「誰が・何をしていて・どこを見ればいいか」が分かるようにする */}
+      <header className={`${cardClass} overflow-hidden`}>
+        <div className="relative h-32 w-full sm:h-40">
+          <Image
+            src="/milkyway.webp"
+            alt="天の川の写真"
+            fill
+            sizes="(max-width: 896px) 100vw, 896px"
+            priority
+            className="object-cover"
+          />
+        </div>
+        <div className="space-y-4 p-6 sm:p-8">
+          <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+            Haru Hayakawa
+          </p>
+          <div className="space-y-2">
+            <h1 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-4xl">
+              早川 晴
             </h1>
-            <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
-              ご覧いただきありがとうございます。
+            <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+              東京大学 理学部 天文学科 B3
             </p>
-            <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
-              早川晴のホームページです。
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/aboutme"
-                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
-              >
-                詳細を見る
-              </Link>
-              <a
-                href="#news"
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                お知らせ
-              </a>
-            </div>
           </div>
-          <div className="overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-slate-50/90 shadow-sm dark:border-slate-800/80 dark:bg-slate-950/80">
-            <Image
-              src="/milkyway.jpg"
-              alt="天の川の写真"
-              width={1600}
-              height={900}
-              className="h-full w-full object-cover"
-            />
+          <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
+            系外惑星・変光星・銀河を対象に天文学の研究をしています。あわせて、天文学オリンピックを中心とした教育・アウトリーチ活動に講師・スタッフとして関わっています。
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {keywords.map((k) => (
+              <Chip key={k}>{k}</Chip>
+            ))}
           </div>
         </div>
+      </header>
+
+      {/* 行き先が明確な誘導 */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <NavCard
+          href="/aboutme"
+          title="About me"
+          description="経歴・所属・研究テーマなどのプロフィール。"
+        />
+        <NavCard
+          href="/works"
+          title="主な活動"
+          description="論文・学会発表・受賞・アウトリーチ活動の記録。"
+        />
+        <NavCard
+          href="/blog"
+          title="Blog"
+          description="日々考えたことや、このサイトについての記事。"
+        />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <article id="news" className="rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-950/80">
-          <h2 className="text-2xl font-semibold text-slate-950 dark:text-slate-50">
+      <div className="grid gap-4 lg:grid-cols-2">
+        <Card className="p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-slate-950 dark:text-slate-50">
             お知らせ・更新履歴
           </h2>
-          <div className="mt-6 space-y-4 text-slate-600 dark:text-slate-300">
-            <div className="rounded-3xl bg-slate-100/80 p-4 dark:bg-slate-900/80">
-              <p className="font-semibold text-slate-900 dark:text-slate-100">2025年8月16日</p>
-              <p className="text-sm leading-6">サイトをアップデートしました。</p>
-            </div>
-            <div className="rounded-3xl bg-slate-100/80 p-4 dark:bg-slate-900/80">
-              <p className="font-semibold text-slate-900 dark:text-slate-100">2024年5月12日</p>
-              <p className="text-sm leading-6">サイトを公開しました。</p>
-            </div>
-          </div>
-        </article>
+          <ul className="mt-4 space-y-3">
+            {news.map((n) => (
+              <li key={n.date} className="flex flex-col sm:flex-row sm:gap-4">
+                <span className="shrink-0 text-sm tabular-nums text-slate-500 dark:text-slate-400 sm:w-28">
+                  {n.date}
+                </span>
+                <span className="text-sm leading-6 text-slate-700 dark:text-slate-300">
+                  {n.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Card>
 
-        <article className="rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-950/80">
-          <h2 className="text-2xl font-semibold text-slate-950 dark:text-slate-50">
-            Latest Blog
+        <Card className="p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-slate-950 dark:text-slate-50">
+            最新のブログ
           </h2>
-          <div className="mt-6 space-y-3 text-slate-600 dark:text-slate-300">
-            <BlogPosts />
+          <div className="mt-4">
+            <BlogPosts limit={2} />
           </div>
-        </article>
+        </Card>
       </div>
     </section>
   )

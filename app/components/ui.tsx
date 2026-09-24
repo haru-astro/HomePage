@@ -1,0 +1,180 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import type { ReactNode } from 'react'
+
+/** サイト全体で共通のカード外観 */
+export const cardClass =
+  'rounded-[1.75rem] border border-slate-200/80 bg-white/90 shadow-[0_18px_50px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-900/80'
+
+export function Card({
+  children,
+  className = '',
+}: {
+  children: ReactNode
+  className?: string
+}) {
+  return <div className={`${cardClass} ${className}`}>{children}</div>
+}
+
+/** 各ページ共通のヘッダー。画像は主役ではなく帯として扱う */
+export function PageHeader({
+  eyebrow,
+  title,
+  lead,
+  image,
+  alt,
+  priority = false,
+}: {
+  eyebrow?: string
+  title: string
+  lead?: ReactNode
+  image?: string
+  alt?: string
+  priority?: boolean
+}) {
+  return (
+    <header className={`${cardClass} overflow-hidden`}>
+      {image && (
+        <div className="relative h-36 w-full sm:h-44 md:h-52">
+          <Image
+            src={image}
+            alt={alt ?? ''}
+            fill
+            sizes="(max-width: 896px) 100vw, 896px"
+            priority={priority}
+            className="object-cover"
+          />
+        </div>
+      )}
+      <div className="space-y-3 p-6 sm:p-8">
+        {eyebrow && (
+          <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+            {eyebrow}
+          </p>
+        )}
+        <h1 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-4xl">
+          {title}
+        </h1>
+        {lead && (
+          <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
+            {lead}
+          </p>
+        )}
+      </div>
+    </header>
+  )
+}
+
+export function SectionTitle({
+  children,
+  count,
+}: {
+  children: ReactNode
+  count?: number
+}) {
+  return (
+    <div className="flex items-baseline gap-3">
+      <h2 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-slate-50">
+        {children}
+      </h2>
+      {typeof count === 'number' && (
+        <span className="text-sm tabular-nums text-slate-400 dark:text-slate-500">
+          {count}
+        </span>
+      )}
+    </div>
+  )
+}
+
+function ArrowIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 12 12"
+      fill="none"
+      aria-hidden="true"
+      className="shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+    >
+      <path
+        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+/** 行き先が明確な誘導カード */
+export function NavCard({
+  href,
+  title,
+  description,
+}: {
+  href: string
+  title: string
+  description: string
+}) {
+  return (
+    <Link
+      href={href}
+      className={`${cardClass} group flex flex-col gap-2 p-6 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_24px_60px_rgba(15,23,42,0.10)] dark:hover:border-slate-700`}
+    >
+      <span className="flex items-center justify-between gap-2 text-base font-semibold text-slate-950 dark:text-slate-50">
+        {title}
+        <ArrowIcon />
+      </span>
+      <span className="text-sm leading-6 text-slate-600 dark:text-slate-400">
+        {description}
+      </span>
+    </Link>
+  )
+}
+
+/** 実績サマリの数値 */
+export function Stat({ value, label }: { value: string | number; label: string }) {
+  return (
+    <div className="rounded-2xl bg-slate-100/80 px-4 py-3 dark:bg-slate-800/60">
+      <p className="text-2xl font-semibold tabular-nums text-slate-950 dark:text-slate-50">
+        {value}
+      </p>
+      <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{label}</p>
+    </div>
+  )
+}
+
+export function Chip({ children }: { children: ReactNode }) {
+  return (
+    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-300">
+      {children}
+    </span>
+  )
+}
+
+/** 年・日付つきの一覧項目 */
+export function EntryItem({
+  meta,
+  title,
+  detail,
+}: {
+  meta: string
+  title: ReactNode
+  detail?: ReactNode
+}) {
+  return (
+    <li className="flex flex-col gap-1 border-l-2 border-slate-200 pl-4 dark:border-slate-700 sm:flex-row sm:gap-4 sm:border-l-0 sm:pl-0">
+      <span className="shrink-0 pt-0.5 text-sm tabular-nums text-slate-500 dark:text-slate-400 sm:w-36">
+        {meta}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block leading-7 text-slate-900 dark:text-slate-100">
+          {title}
+        </span>
+        {detail && (
+          <span className="mt-0.5 block text-sm leading-6 text-slate-500 dark:text-slate-400">
+            {detail}
+          </span>
+        )}
+      </span>
+    </li>
+  )
+}

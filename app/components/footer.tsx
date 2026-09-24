@@ -1,29 +1,29 @@
-function ArrowIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
+const links = [
+  { name: 'GitHub', href: 'https://github.com/haru-astro' },
+]
 
 export default function Footer() {
   return (
-    // ↓ この行を修正しました
-    <footer className="mb-16 mt-24 text-center">
-      <p className="mb-4 text-neutral-600 dark:text-neutral-300">
-        contact : haruhayakawa[at]g.ecc.u-tokyo.ac.jp <br />
-
-        © {new Date().getFullYear()} haru hayakawa. MIT Licensed
-      </p>
+    <footer className="mb-12 mt-20 border-t border-slate-200 pt-8 dark:border-slate-800">
+      <div className="flex flex-col items-center gap-4 text-sm text-slate-500 dark:text-slate-400 sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center gap-1 sm:items-start">
+          <p>contact : haruhayakawa[at]g.ecc.u-tokyo.ac.jp</p>
+          <p>© {new Date().getFullYear()} haru hayakawa. MIT Licensed</p>
+        </div>
+        <div className="flex gap-3">
+          {links.map((l) => (
+            <a
+              key={l.name}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-slate-200 px-4 py-2 transition hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+            >
+              {l.name}
+            </a>
+          ))}
+        </div>
+      </div>
     </footer>
-  );
+  )
 }
