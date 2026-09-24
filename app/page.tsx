@@ -42,7 +42,7 @@ export default function Page() {
             </p>
           </div>
           <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
-            系外惑星・変光星・銀河を対象に天文学の研究をしています。あわせて、天文学オリンピックを中心とした教育・アウトリーチ活動に講師・スタッフとして関わっています。
+            銀河・変光星・系外惑星を対象に天文学の研究をしています。あわせて、中高生を対象とした様々な天文教育・アウトリーチ活動に講師・スタッフとして関わっています。
           </p>
           <div className="flex flex-wrap gap-2">
             {keywords.map((k) => (
