@@ -1,6 +1,13 @@
-import { PageHeader, Card, NavCard, Stat } from 'app/components/ui'
+import {
+  PageHeader,
+  Card,
+  NavCard,
+  Stat,
+  SectionTitle,
+  HighlightItem,
+} from 'app/components/ui'
 import { photoBySrc } from 'app/components/photos'
-import { highlights } from './data'
+import { highlights, featured } from './data'
 
 export const metadata = {
   title: 'Activity',
@@ -34,6 +41,20 @@ export default function ActivityPage() {
           />
           <Stat value={highlights.awards} label="受賞・大会出場" />
           <Stat value={`${highlights.outreach}+`} label="アウトリーチ" />
+        </div>
+      </Card>
+
+      <Card className="space-y-5 p-6 sm:p-8">
+        <SectionTitle>Highlights</SectionTitle>
+        <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2">
+          {featured.map((f) => (
+            <HighlightItem
+              key={f.title}
+              period={f.period}
+              title={f.title}
+              detail={f.detail}
+            />
+          ))}
         </div>
       </Card>
 

@@ -135,6 +135,33 @@ export function NavCard({
   )
 }
 
+/** 目立たせたい実績を1件分表示する */
+export function HighlightItem({
+  period,
+  title,
+  detail,
+}: {
+  period: string
+  title: string
+  detail?: string
+}) {
+  return (
+    <div className="border-l-2 border-slate-900 pl-4 dark:border-slate-100">
+      <p className="text-xs tabular-nums text-slate-500 dark:text-slate-400">
+        {period}
+      </p>
+      <p className="mt-1 text-sm font-semibold leading-6 text-slate-950 dark:text-slate-50">
+        {title}
+      </p>
+      {detail && (
+        <p className="mt-0.5 text-sm leading-6 text-slate-500 dark:text-slate-400">
+          {detail}
+        </p>
+      )}
+    </div>
+  )
+}
+
 /** 実績サマリの数値。note には「うち筆頭 4」のような内訳を渡す */
 export function Stat({
   value,

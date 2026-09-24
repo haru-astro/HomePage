@@ -4,6 +4,14 @@
  * 実績サマリの件数はここから自動集計される。
  */
 
+/** Activity の先頭で目立たせる主な実績 */
+export type Featured = {
+  title: string
+  /** 補足（開催地や役割など） */
+  detail?: string
+  period: string
+}
+
 export type Education = {
   period: string
   school: string
@@ -49,6 +57,29 @@ export type OutreachEvent = {
   title: string
   place?: string
 }
+
+export const featured: Featured[] = [
+  {
+    title: '国際天文学・天体物理学オリンピック 日本代表',
+    detail: '第16回大会 出場',
+    period: '2023',
+  },
+  {
+    title: 'もしも君が杜の都で天文学者になったら SLA',
+    detail: '東北大学青葉山キャンパス',
+    period: '2024・2025年度',
+  },
+  {
+    title: 'K会 天文学講師',
+    detail: '河合塾本郷校 季節講習',
+    period: '2025春・2026冬',
+  },
+  {
+    title: '横浜サイエンスフロンティア高等学校 部活動指導員',
+    detail: '天文部',
+    period: '2026年4月〜',
+  },
+]
 
 export const education: Education[] = [
   {
